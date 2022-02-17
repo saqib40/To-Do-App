@@ -36,6 +36,9 @@ h1 {
 .tasktodo {
   margin-left: 15px;
 }
+#tasktodo {
+  text-decoration: line-through;
+}
 
 .task {
   box-sizing: border-box;
