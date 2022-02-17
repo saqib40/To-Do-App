@@ -5,7 +5,7 @@ let textTask = document.querySelector('.textTask');
 let taskToDo = document.querySelector('.tasktodo');
 
 function deletion() {
-  
+  task.remove();
 }
 
 function check() {
