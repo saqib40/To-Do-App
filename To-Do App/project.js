@@ -4,17 +4,33 @@ let button = document.querySelector('button');
 let textTask = document.querySelector('.textTask');
 let taskToDo = document.querySelector('.tasktodo');
 let task = document.querySelector('.task');
-let body = document.querySelector('body');
+let taskList = document.querySelector('.taskList');
 
-function deletion() {
-  task.remove();
-}
+//deletion
+taskList.addEventListener('click', e => {
+  let parent = e.target.parentNode;
+  if (e.target.matches('.delete')) {
+    parent.remove();
+  }
+});
 
+//check
+taskList.addEventListener('click', e=> {
+  let text = e.target.nextSibling;
+  if (e.target.checked === true) {
+    text.setAttribute('id', 'tasktodo');
+  }
+  else {
+    text.setAttribute('id', 'bullshit');
+  }
+});
+
+//adding
 function add() {
   //creating a div element with class = task
   let newtask = document.createElement('div');
   newtask.setAttribute('class', 'task');
-  body.appendChild(newtask);
+  taskList.appendChild(newtask);
   
   //creating a span element inside div with class = delete
   let newDelete = document.createElement('span');
@@ -34,17 +50,8 @@ function add() {
   newtasktodo.setAttribute('class', 'tasktodo');
   newtasktodo.textContent = textTask.value;
   newtask.appendChild(newtasktodo);
+  
+  //updating the text
+  textTask.value = '';
 }
-
-taskList.addEventListener('click', e=> {
-  let text = e.target.nextSibling;
-  if (e.target.checked === true) {
-    text.setAttribute('id', 'tasktodo');
-  }
-  else {
-    text.setAttribute('id', 'bullshit');
-  }
-});
-
-button.addEventListener('click', add)
-deleteButton.addEventListener('click', deletion);
+button.addEventListener('click', add);
