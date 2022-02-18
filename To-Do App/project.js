@@ -3,6 +3,8 @@ let box = document.querySelector('.box');
 let button = document.querySelector('button');
 let textTask = document.querySelector('.textTask');
 let taskToDo = document.querySelector('.tasktodo');
+let task = document.querySelector('.task');
+let body = document.querySelector('body');
 
 function deletion() {
   task.remove();
@@ -18,7 +20,9 @@ function check() {
 }
 
 function add() {
-  
+  let newtask = document.createElement('div.task');
+  newtask.textContent = textTask.value;
+  body.appendChild(newtask);
 }
 
 
