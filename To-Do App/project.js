@@ -10,15 +10,6 @@ function deletion() {
   task.remove();
 }
 
-function check() {
-  if (box.checked === true) {
-    taskToDo.setAttribute('id', 'tasktodo');
-  }
-  else {
-    taskToDo.setAttribute('id', 'bullshit');
-  }
-}
-
 function add() {
   //creating a div element with class = task
   let newtask = document.createElement('div');
@@ -45,7 +36,15 @@ function add() {
   newtask.appendChild(newtasktodo);
 }
 
+taskList.addEventListener('click', e=> {
+  let text = e.target.nextSibling;
+  if (e.target.checked === true) {
+    text.setAttribute('id', 'tasktodo');
+  }
+  else {
+    text.setAttribute('id', 'bullshit');
+  }
+});
 
-box.addEventListener('click', check);
 button.addEventListener('click', add)
 deleteButton.addEventListener('click', deletion);
