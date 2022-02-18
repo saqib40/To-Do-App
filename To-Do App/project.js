@@ -20,9 +20,29 @@ function check() {
 }
 
 function add() {
-  let newtask = document.createElement('div.task');
-  newtask.textContent = textTask.value;
+  //creating a div element with class = task
+  let newtask = document.createElement('div');
+  newtask.setAttribute('class', 'task');
   body.appendChild(newtask);
+  
+  //creating a span element inside div with class = delete
+  let newDelete = document.createElement('span');
+  newDelete.setAttribute('class', 'delete');
+  newDelete.textContent = 'x';
+  newtask.appendChild(newDelete);
+  
+  //creating a checkbox ...
+  let newBox = document.createElement('input');
+  newBox.setAttribute('class', 'box');
+  newBox.setAttribute('type', 'checkbox');
+  newBox.textContent = 'x';
+  newtask.appendChild(newBox);
+  
+  //creating a span element ...
+  let newtasktodo = document.createElement('span');
+  newtasktodo.setAttribute('class', 'tasktodo');
+  newtasktodo.textContent = textTask.value;
+  newtask.appendChild(newtasktodo);
 }
 
 
